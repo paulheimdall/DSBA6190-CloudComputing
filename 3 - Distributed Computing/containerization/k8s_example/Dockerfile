@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir \
     joblib
 
 # Copy your training script into the container
-COPY train_model.py /app/train_model.py
+COPY train.py /app/train.py
 
 # Run the training script by default
-CMD ["python", "train_model.py"]
+CMD ["python", "train.py"]

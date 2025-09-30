@@ -2,8 +2,8 @@
 FROM python:3.12.6-slim
 
 # Set working directory
-RUN mkdir /app 
-WORKDIR /app
+RUN mkdir /lab 
+WORKDIR /lab
 
 # Install dependencies: Azure SDKs, pandas, scikit-learn, joblib for saving model
 RUN python -m pip install --no-cache-dir \
@@ -14,7 +14,7 @@ RUN python -m pip install --no-cache-dir \
     joblib
 
 # Copy your training script into the container
-COPY train.py /app/train.py
+COPY train.py /lab/train.py
 
 # Run the training script by default
 CMD ["python", "train.py"]

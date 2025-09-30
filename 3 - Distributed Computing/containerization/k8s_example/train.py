@@ -6,7 +6,7 @@ import numpy as np
 import joblib
 
 # 1. Load dataset from CSV file (make sure you saved it in your working directory)
-data = pd.read_csv('/mnt/datalake/Beta/diabetes.csv')
+data = pd.read_csv('/mnt/datalake/Beta/BostonHousing.csv')
 
 # 2. Features and target
 X = data.drop("medv", axis=1)  # all columns except target

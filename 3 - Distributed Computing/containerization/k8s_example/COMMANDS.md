@@ -4,7 +4,7 @@
 
 ```bash
 docker build -t <IMAGE_NAME> .
-# docker build -t instructor_sklearn .
+# docker build -t lab2_paulthottappillybostonhousing .
 ## for ARM-based laptops
 # docker build -t instructor_sklearn --platform linux/amd64 .
 ```
@@ -13,7 +13,7 @@ docker build -t <IMAGE_NAME> .
 
 ```bash
 docker run -it --name <CONTAINER_NAME> <IMAGE_NAME> <COMMAND> 
-# docker run -it --name sklearn_01 instructor_sklearn /bin/bash
+# docker run -it --name sklearn_01 lab2_paulthottappillybostonhousing /bin/bash
 # docker run -v ./:/mnt/datalake/instructor -it --name sklearn_01 instructor_sklearn /bin/bash
 ```
 
@@ -36,11 +36,11 @@ az acr login --name <REGISTRY_NAME>
 
 ## Tag the image with the container registry information
 docker tag <IMAGE_NAME> <REGISTRY_NAME>.azurecr.io/<IMAGE_NAME>
-# docker tag lab2_paulthottappilly crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
+# docker tag lab2_paulthottappillybostonhousing crdsba6190deveastus001.azurecr.io/lab2_paulthottappillybostonhousing:latest
 
 ## Push the image to the container registry
 docker push <REGISTRY_NAME>.azurecr.io/<IMAGE_NAME>
-# docker push crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
+# docker push crdsba6190deveastus001.azurecr.io/lab2_paulthottappillybostonhousing:latest
 ```
 
 ## Get the Azure Kubernetes Service credential for kubectl to use

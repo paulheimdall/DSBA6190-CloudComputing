@@ -6,7 +6,7 @@ spec:
   restartPolicy: Never
   containers:
   - name: lab2-paulthottappillybostonhousing
-    image: crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
+    image: crdsba6190deveastus001.azurecr.io/lab2_paulthottappillybostonhousing:latest
     volumeMounts: 
       - name: datalake
         mountPath: "/mnt/datalake/"

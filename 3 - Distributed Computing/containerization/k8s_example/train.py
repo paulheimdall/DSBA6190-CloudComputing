@@ -1,36 +1,33 @@
-from sklearn.datasets import load_diabetes
-from sklearn.linear_model import Ridge, LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+import numpy as np
+import joblib
 
-## Load the data
-# diabetes = load_diabetes()
-## Convert the dataset to a DataFrame
-# diabetes_df = pd.DataFrame(data=diabetes.data,
-#                            columns=diabetes.feature_names)
-## Add target variable to the DataFrame
-# diabetes_df['target'] = diabetes.target
-# diabetes_df.to_csv('diabetes.csv', index=False)
-diabetes = pd.read_csv('/Users/paulthottappilly/Desktop/DSBA6190-CloudComputing/3 - Distributed Computing/containerization/k8s_example/diabetes.csv')
+# 1. Load dataset from CSV file (make sure you saved it in your working directory)
+data = pd.read_csv("BostonHousing.csv")
 
-## Split the data
-# X, y = diabetes.data, diabetes.target
-X = diabetes.drop('target', axis=1)
-y = diabetes['target']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+# 2. Features and target
+X = data.drop("medv", axis=1)  # all columns except target
+y = data["medv"]              # target: median home value
 
-## Train a regression model
+# 3. Train-test split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# 4. Train linear regression model
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-## Predict Y-pred values
+# 5. Predict
 y_pred = model.predict(X_test)
 
-## Print MSE
+# 6. Evaluate
 mse = mean_squared_error(y_test, y_pred)
-print(f'Mean Squared Error: {mse}')
+rmse = np.sqrt(mse)
 
-# Save the model
-import joblib
-joblib.dump(model, '/Users/paulthottappilly/Desktop/DSBA6190-CloudComputing/3 - Distributed Computing/containerization/k8s_example/lab')
+print(f"RMSE: {rmse:.3f}")
+
+joblib.dump(model, '/mnt/datalake/instructor/diabetes_model.pkl')

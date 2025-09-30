@@ -59,7 +59,7 @@ kubectl apply -f <POD YAML FILE>
 
 ```bash
 kubectl exec -it <pod_name> -- /bin/bash
-# kubectl exec -it instructor-test-01 -- /bin/bash
+# kubectl exec -it lab2-paulthottappilly -- /bin/bash
 ```
 
 ## Run your Python Script in the Pod

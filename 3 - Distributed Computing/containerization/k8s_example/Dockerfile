@@ -12,7 +12,6 @@ RUN python -m pip install pandas \
 
 # Copy your training script and data  into the container
 COPY train.py /lab/train.py
-COPY BostonHousing.csv /lab/BostonHousing.csv
 
 # Run the training script by default
 CMD ["python", "train.py"]

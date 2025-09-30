@@ -1,17 +1,17 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: lab2_paulthottappilly
+  name: lab2-paulthottappilly
 spec:
   restartPolicy: Never
   containers:
-  - name: lab2_paulthottappilly
+  - name: lab2-paulthottappilly
     image: crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
     volumeMounts: 
       - name: datalake
         mountPath: "/mnt/datalake/"
         readOnly: false
-    # command: ["/bin/bash", "-c"]
+    # command: ["/bin/bash", "-c"] 
     # args: ["./run.py"]
     command: [ "/bin/bash", "-c", "--" ]
     args: [ "while true; do sleep 30; done;" ]

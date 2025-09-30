@@ -6,7 +6,7 @@ import numpy as np
 import joblib
 
 # 1. Load dataset from CSV file (make sure you saved it in your working directory)
-data = pd.read_csv('/mnt/datalake/data/BostonHousing.csv')
+data = pd.read_csv('BostonHousing.csv')
 
 # 2. Features and target
 X = data.drop("medv", axis=1)  # all columns except target
@@ -30,4 +30,4 @@ rmse = np.sqrt(mse)
 
 print(f"RMSE: {rmse:.3f}")
 
-joblib.dump(model, '/mnt/datalake/data/bostonhousing_model.pkl')
+joblib.dump(model, 'bostonhousing_model.pkl')

@@ -2,10 +2,11 @@
 FROM python:3.12.6-slim
 
 # Set working directory
+RUN mkdir /app 
 WORKDIR /app
 
 # Install dependencies: Azure SDKs, pandas, scikit-learn, joblib for saving model
-RUN pip install --no-cache-dir \
+RUN python -m pip install --no-cache-dir \
     azure-identity \
     azure-storage-file-datalake \
     pandas \

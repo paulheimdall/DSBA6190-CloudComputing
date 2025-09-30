@@ -10,7 +10,7 @@ RUN python -m pip install pandas \
     scikit-learn \
     joblib
 
-# Copy your training script into the container
+# Copy your training script and data  into the container
 COPY train.py /lab/train.py
 COPY BostonHousing.csv /lab/BostonHousing.csv
 

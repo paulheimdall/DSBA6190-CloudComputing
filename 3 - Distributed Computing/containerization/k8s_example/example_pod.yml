@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: instructor-test-01
+  name: lab2_paulthottappilly
 spec:
   restartPolicy: Never
   containers:
-  - name: instructor-sklearn
-    image: crdsba6190deveastus001.azurecr.io/instructor_sklearn:latest
-    volumeMounts:
+  - name: lab2_paulthottappilly
+    image: crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
+    volumeMounts: 
       - name: datalake
         mountPath: "/mnt/datalake/"
         readOnly: false

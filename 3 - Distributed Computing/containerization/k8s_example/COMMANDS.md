@@ -36,11 +36,11 @@ az acr login --name <REGISTRY_NAME>
 
 ## Tag the image with the container registry information
 docker tag <IMAGE_NAME> <REGISTRY_NAME>.azurecr.io/<IMAGE_NAME>
-# docker tag instructor_sklearn crdsba6190deveastus001.azurecr.io/instructor_sklearn:latest
+# docker tag lab2_paulthottappilly crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
 
 ## Push the image to the container registry
 docker push <REGISTRY_NAME>.azurecr.io/<IMAGE_NAME>
-# docker push crdsba6190deveastus001.azurecr.io/instructor_sklearn:latest
+# docker push crdsba6190deveastus001.azurecr.io/lab2_paulthottappilly:latest
 ```
 
 ## Get the Azure Kubernetes Service credential for kubectl to use

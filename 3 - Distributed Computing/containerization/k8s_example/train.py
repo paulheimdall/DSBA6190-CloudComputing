@@ -24,7 +24,7 @@ model.fit(X_train, y_train)
 # 5. Predict
 y_pred = model.predict(X_test)
 
-# 6. Evaluate
+# 6. Evaluate  
 mse = mean_squared_error(y_test, y_pred)
 rmse = np.sqrt(mse)
 

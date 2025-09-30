@@ -1,18 +1,19 @@
 ## Basic image with scikit-learn and pandas
 FROM python:3.12.6-slim
 
-## Install python3 and pip
-# RUN apt-get update && \
-#     apt-get install -y \
-#             python3 \
-#             python3-pip
+# Set working directory
+WORKDIR /app
 
-## Install sklearn and panda
-RUN python -m pip install scikit-learn pandas
+# Install dependencies: Azure SDKs, pandas, scikit-learn, joblib for saving model
+RUN pip install --no-cache-dir \
+    azure-identity \
+    azure-storage-file-datalake \
+    pandas \
+    scikit-learn \
+    joblib
 
-## Create a directory for the lab
-RUN mkdir /lab
-WORKDIR /lab
+# Copy your training script into the container
+COPY train_model.py /app/train_model.py
 
-## Copy the training files
-COPY ./train.py /lab/train.py
+# Run the training script by default
+CMD ["python", "train_model.py"]

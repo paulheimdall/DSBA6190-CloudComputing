@@ -15,7 +15,6 @@ RUN python -m pip install --no-cache-dir \
 
 # Copy your training script into the container
 COPY train.py /lab/train.py
-COPY BostonHousing.csv /lab/BostonHousing.csv
 
 # Run the training script by default
 CMD ["python", "train.py"]

@@ -4,25 +4,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 import numpy as np
 import joblib
-from azure.storage.filedatalake import DataLakeServiceClient
-
-account_name = "stodsba6190beta"
-account_key = "<storage-account-key>"
-file_system_name = "<data"
-directory_name = "Thottappilly"
-file_name = "BostonHousing.csv"
-
-service_client = DataLakeServiceClient(
-    account_url=f"https://{account_name}.dfs.core.windows.net",
-    credential=account_key
-)
-
-file_system_client = service_client.get_file_system_client(file_system=file_system_name)
-directory_client = file_system_client.get_directory_client(directory_name)
-file_client = directory_client.get_file_client(file_name)
 
 # 1. Load dataset from CSV file (make sure you saved it in your working directory)
-data = pd.read_csv(file_client.path_name)
+data = pd.read_csv('/mnt/datalake/data/BostonHousing.csv')
 
 # 2. Features and target
 X = data.drop("medv", axis=1)  # all columns except target
@@ -46,4 +30,4 @@ rmse = np.sqrt(mse)
 
 print(f"RMSE: {rmse:.3f}")
 
-joblib.dump(model, '/mnt/datalake/instructor/diabetes_model.pkl')
+joblib.dump(model, '/mnt/datalake/data/bostonhousing_model.pkl')
